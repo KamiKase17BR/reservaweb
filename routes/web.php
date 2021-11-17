@@ -13,6 +13,8 @@ Auth::routes();
 Route::prefix('table')->group(function(){
     Route::get('/home', 'TablesController@index')->name('table.home');
     Route::get('/insert', 'TablesController@create')->name('table.insert');
+    Route::get('/edit', 'TablesController@show')->name('table.edit');
+    Route::post('/create', 'TablesController@store')->name('table.store');
 
 });
 

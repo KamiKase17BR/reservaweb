@@ -30,3 +30,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+
+function radio(){
+
+    var radio2 = document.getElementById("radio2").value;
+    var radio4 = document.getElementById("radio4").value;
+}

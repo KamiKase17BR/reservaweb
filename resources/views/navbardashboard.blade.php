@@ -28,8 +28,8 @@
                     <span class="nav-text">
                         Cardápios
                     </span>
-                </a>
 
+                </a>
             </li>
             <li class="has-subnav">
                 <a href="{{url ('/order')}}">

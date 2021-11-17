@@ -26,6 +26,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @if (session()->has('message'))
+        <div class="alert alert-success">
+            <div style="text-align: center">
+                {{ session()->get('message') }}
+            </div>
+        </div>
+    @endif
 </head>
 
 <body>
@@ -38,6 +45,7 @@
 
             @yield('tableshome')
             @yield('inserttable')
+            @yield('edittable')
         </main>
     </div>
 </body>

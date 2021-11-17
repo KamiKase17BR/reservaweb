@@ -11,7 +11,7 @@
                     <div class="card-header">Ver proximos pedidos</div>
                     <div class="card-body">
                         <a href="{{ route('table.insert') }}">
-                        <button type="button" class="btn btn-info">Adicionar +</button>
+                            <button type="button" class="btn btn-info">Adicionar +</button>
                         </a>
                     </div>
                 </div>
@@ -20,7 +20,9 @@
                 <div class="card">
                     <div class="card-header">Ver pedidos anteriores</div>
                     <div class="card-body">
-                        <button type="button" class="btn btn-warning">Editar</button>
+                        <a href="{{ route('table.edit') }}">
+                            <button type="button" class="btn btn-warning">Editar</button>
+                        </a>
                     </div>
                 </div>
             </div>
