@@ -68,7 +68,7 @@ class TablesController extends Controller
         $request->validate(['image' => 'mimes:jpeg,jpg,png']);
         $imageName = md5($id . $request->name . $request->image->extension());
         $table->image = $imageName;
-        $requestImage->move(public_path('store/' . $id), $imageName);
+        $requestImage->move(public_path('store/table/' . $id), $imageName);
 
         //$qrcode = QrCoder::QrCoder($imageName);
 
@@ -86,8 +86,9 @@ class TablesController extends Controller
     {
         $table = Table::all();
 
-
-        return view('table.edittable');
+        return view('table.edittable', [
+            'table' => $table
+        ]);
     }
 
     /**
