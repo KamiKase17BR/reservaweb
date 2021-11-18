@@ -15,6 +15,8 @@ Route::prefix('table')->group(function(){
     Route::get('/insert', 'TablesController@create')->name('table.insert');
     Route::get('/edit', 'TablesController@show')->name('table.edit');
     Route::post('/create', 'TablesController@store')->name('table.store');
+    Route::get('/delete', 'TablesController@delete')->name('table.delete');
+    Route::delete('/destroy', 'TablesController@destroy')->name('table.destroy');
 
 });
 

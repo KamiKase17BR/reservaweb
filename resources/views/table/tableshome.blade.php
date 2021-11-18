@@ -31,7 +31,9 @@
                     <div class="card">
                         <div class="card-header">Excluir </div>
                         <div class="card-body">
+                            <a href="{{ route('table.delete') }}">
                             <button type="button" class="btn btn-danger">Excluir</button>
+                            </a>
                         </div>
                     </div>
                 </div>

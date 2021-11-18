@@ -46,6 +46,7 @@
             @yield('tableshome')
             @yield('inserttable')
             @yield('edittable')
+            @yield('deletetable')
         </main>
     </div>
 </body>
