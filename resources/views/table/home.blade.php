@@ -7,9 +7,9 @@
 
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header">Adicionar opções de pedido</div>
+                <div class="card-header">Adicionar mesas</div>
                 <div class="card-body">
-                    <a href=#>
+                    <a href="{{ route('table.insert') }}">
                         <button type="button" class="btn btn-success">Adicionar +</button>
                     </a>
                 </div>
@@ -17,9 +17,9 @@
         </div>
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header">Ver opções</div>
+                <div class="card-header">Ver mesas</div>
                 <div class="card-body">
-                    <a href=#>
+                    <a href="{{ route('table.list') }}">
                         <button type="button" class="btn btn-info">Ver</button>
                     </a>
                 </div>

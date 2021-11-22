@@ -16,6 +16,7 @@ class CreateTablesTable extends Migration
         Schema::create('tables', function (Blueprint $table) {
             $table->id()->unique();
             $table->integer('id_parceiro');
+            $table->integer('id_restaurant');
             $table->integer('lugares');
             $table->string('descricao');
             $table->boolean('hour08');

@@ -45,8 +45,14 @@
 
             @yield('tableshome')
             @yield('inserttable')
+            @yield('listtable')
             @yield('edittable')
-            @yield('deletetable')
+            @yield('showtable')
+
+            @yield('restauranthome')
+            @yield('insertrestaurant')
+            @yield('showrestaurant')
+
         </main>
     </div>
 </body>
