@@ -14,6 +14,13 @@
 
             </li>
             <li class="has-subnav">
+                <a href="{{ route('restaurant.home') }}">
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <span class="nav-text">
+                        Restaurante
+                    </span>
+                </a>
+            <li class="has-subnav">
                 <a href="{{ route('table.home') }}">
                     <i class="fa fa-qrcode fa-2x"></i>
                     <span class="nav-text">
@@ -23,7 +30,7 @@
 
             </li>
             <li class="has-subnav">
-                <a href="{{url ('/menu')}}">
+                <a href="{{route ('menu.home')}}">
                     <i class="fa fa-file-text fa-2x"></i>
                     <span class="nav-text">
                         Cardápios
