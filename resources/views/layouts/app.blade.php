@@ -46,7 +46,6 @@
             @yield('tableshome')
             @yield('inserttable')
             @yield('edittable')
-<<<<<<< HEAD
             @yield('showtable')
 
             @yield('restauranthome')
@@ -55,9 +54,6 @@
             @yield('listrestaurant')
             @yield('editrestaurant')
 
-=======
-            @yield('deletetable')
->>>>>>> parent of f259543... refactor: views tables, insert restaurant and more
         </main>
     </div>
 </body>

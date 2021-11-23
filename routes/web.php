@@ -20,7 +20,6 @@ Route::prefix('table')->group(function(){
 
 });
 
-<<<<<<< HEAD
 Route::prefix('restaurant')->group(function(){
     Route::get('/home',             'RestaurantController@index')->name('restaurant.home');
     Route::get('/insert',           'RestaurantController@create')->name('restaurant.insert');
@@ -31,14 +30,10 @@ Route::prefix('restaurant')->group(function(){
     Route::delete('/destroy/{id}',  'RestaurantController@destroy')->name('restaurant.destroy');
     Route::put('/update/{id}',      'RestaurantController@update')->name('restaurant.update');
 
-
-
 });
 
 
 
-=======
->>>>>>> parent of f259543... refactor: views tables, insert restaurant and more
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/menu', 'MenusController@index')->name('menushome');

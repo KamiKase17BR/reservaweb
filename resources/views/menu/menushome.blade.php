@@ -19,14 +19,4 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col-md-6 mx-auto">
-                <div class="card">
-                    <div class="card-header">Excluir Itens</div>
-                    <div class="card-body">
-                        qtd de pedidos
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
