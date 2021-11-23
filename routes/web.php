@@ -23,11 +23,14 @@ Route::prefix('table')->group(function(){
 });
 
 Route::prefix('restaurant')->group(function(){
-    Route::get('/home',   'RestaurantController@index')->name('restaurant.home');
-    Route::get('/insert', 'RestaurantController@create')->name('restaurant.insert');
-    Route::post('/create','RestaurantController@store')->name('restaurant.store');
-    Route::get('/show',   'RestaurantController@show')->name('restaurant.show');
-
+    Route::get('/home',             'RestaurantController@index')->name('restaurant.home');
+    Route::get('/insert',           'RestaurantController@create')->name('restaurant.insert');
+    Route::post('/create',          'RestaurantController@store')->name('restaurant.store');
+    Route::get('/list',             'RestaurantController@list')->name('restaurant.list');
+    Route::get('/show',             'RestaurantController@show')->name('restaurant.show');
+    Route::get('/edit/{id}',        'RestaurantController@edit')->name('restaurant.edit');
+    Route::delete('/destroy/{id}',  'RestaurantController@destroy')->name('restaurant.destroy');
+    Route::put('/update/{id}',      'RestaurantController@update')->name('restaurant.update');
 
 
 

@@ -52,6 +52,8 @@
             @yield('restauranthome')
             @yield('insertrestaurant')
             @yield('showrestaurant')
+            @yield('listrestaurant')
+            @yield('editrestaurant')
 
         </main>
     </div>

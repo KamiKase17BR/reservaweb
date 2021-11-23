@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="card-header">Ver estabelecimento</div>
                 <div class="card-body">
-                    <a href="{{ route('restaurant.show') }}">
+                    <a href="{{ route('restaurant.list') }}">
                         <button type="button" class="btn btn-info">Ver</button>
                     </a>
                 </div>

@@ -85,32 +85,46 @@ class RestaurantController extends Controller
         ]);
     }
 
+    public function list()
+    {
+       $restaurant = $this->repository->first();
+        if($restaurant == null){
+            return redirect()->back()->with('message', 'Não há restaurante cadastrado! ');
+        }
+
+        return view('restaurant.list', [
+            'restaurant' => $restaurant
+        ]);
+    }
 
     public function edit($id)
     {
-        //
+        $restaurant = $this->repository->find($id);
+        return view ('restaurant.edit', [
+            'restaurant'=>$restaurant
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $restaurant = $this->repository;
+
+        $restaurant->find($id);
+
+       // dd($request->all());
+
+        $restaurant->update($request->all());
+
+        return redirect()->route('restaurant.list')->with('message', 'Atualizado o estabelecimento '. $id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+
+        $restaurant = $this->repository->where('id',$id)->first();
+        $restaurant->delete();
+
+        return redirect()->route('restaurant.list')->with('message', 'Deletado o estabelecimento '. $id);
     }
 }
