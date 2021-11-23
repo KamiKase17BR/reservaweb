@@ -1,30 +1,32 @@
 @extends('layouts.app')
 @extends('navbardashboard')
 
-
-<div class="bg-image-table">
-    <div class="container">
-
-        <div class="col-md-4">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Adicionar opções de pedido</div>
+                <div class="card-header">Adicionar Itens</div>
                 <div class="card-body">
-                    <a href=#>
-                        <button type="button" class="btn btn-success">Adicionar +</button>
-                    </a>
+                    qtd de mesas
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Ver opções</div>
+                <div class="card-header">Editar Itens</div>
                 <div class="card-body">
-                    <a href=#>
-                        <button type="button" class="btn btn-info">Ver</button>
-                    </a>
+                    qtd de pedidos
                 </div>
             </div>
         </div>
-
+        <div class="row mt-3">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-header">Excluir Itens</div>
+                    <div class="card-body">
+                        qtd de pedidos
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>

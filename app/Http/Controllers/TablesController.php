@@ -2,40 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Restaurant;
 use App\Models\Table;
-use Facade\Ignition\Tabs\Tab;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TablesController extends Controller
 {
-    protected $request;
-    private $repository;
-
-    public function __construct(Request $request, Table $table)
-    {
-        $this->request = $request;
-        $this->repository = $table;
-    }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-
-        $teste = Table::first();
-        //dd($teste->restaurant);
-
-       return view('table.home');
+        return view('table.tableshome');
     }
 
     public function create()
     {
-        return view('table.insert');
+        return view('table.inserttable');
     }
 
     public function store(Request $request)
     {
-        $table = $this->repository;
+        $table = new Table;
         $id = Auth::user()->id;
         $table->lugares = $request->place;
 
@@ -49,7 +39,6 @@ class TablesController extends Controller
         }
 
         $table->id_parceiro = $id;
-        //$table->id_restaurante =
         $request->checkhour;
         $table->hour08 = !isset($request->checkhour["08:00"]) ? 0 : 1;
         $table->hour09 = !isset($request->checkhour["09:00"]) ? 0 : 1;
@@ -80,54 +69,38 @@ class TablesController extends Controller
     }
 
 
-    public function list()
+    public function show()
     {
+        $table = Table::all();
 
-        $table = $this->repository->all();
-
-        return view('table.list', [
+        return view('table.edittable', [
             'table' => $table
         ]);
     }
 
     public function edit($id)
     {
-        $table = $this->repository->find($id);
-        return view ('table.edit', [
-            'table'=>$table
-        ]);
-
+        //
     }
 
-    public function show($id)
+    public function update(Request $request, $id)
     {
-        $table = $this->repository->find($id);
-
-        return view ('table.show', [
-            'table'=>$table
-        ]);
-
-    }
-
-    public function update( Request $request ,$id)
-    {
-        $table = $this->repository;
-
-        $table->find($id);
-
-       // dd($request->all());
-
-        $table->update($request->all());
-
-        return redirect()->route('table.list')->with('message', 'Atualizada a mesa '. $id);
+        //
     }
 
     public function destroy($id)
     {
-        $table = $this->repository->where('id',$id)->first();
-        $table->delete();
+        Table::findOrFail($id)->delete();
 
-        return redirect()->route('table.list')->with('message', 'Deletada a mesa '. $id);
+        return redirect()->route('table.delete')->with('message', 'Deletada a mesa '. $id);
     }
 
+    public function delete(){
+        $table = Table::all();
+
+        return view('table.deletetable', [
+            'table' => $table
+        ]);
+
+    }
 }
