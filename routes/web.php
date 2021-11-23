@@ -36,11 +36,18 @@ Route::prefix('restaurant')->group(function(){
 
 });
 
+Route::prefix('menu')->group(function(){
+Route::get('/home',                 'MenusController@index')->name('menu.home');
+Route::get('/insert',               'MenusController@create')->name('menu.insert');
+Route::post('/create',              'MenusController@store')->name('menu.store');
 
 
+
+
+
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/menu', 'MenusController@index')->name('menushome');
 Route::get('/order', 'OrdersController@index')->name('ordershome');
 Route::get('/receipt', 'ReceiptController@index')->name('receitphome');
 Route::get('/account', 'AccountsController@index')->name('accountshome');

@@ -38,12 +38,6 @@ class RestaurantController extends Controller
         return view('restaurant.insert');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
 
@@ -111,9 +105,7 @@ class RestaurantController extends Controller
 
         $restaurant->find($id);
 
-       // dd($request->all());
-
-        $restaurant->update($request->all());
+        $restaurant->save($request->all());
 
         return redirect()->route('restaurant.list')->with('message', 'Atualizado o estabelecimento '. $id);
     }

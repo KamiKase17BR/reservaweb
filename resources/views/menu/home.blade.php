@@ -1,22 +1,30 @@
 @extends('layouts.app')
 @extends('navbardashboard')
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
+
+<div class="bg-image-menu">
+    <div class="container-fluid">
+
+        <div class="col-md-4">
             <div class="card">
-                <div class="card-header">Adicionar Itens</div>
+                <div class="card-header">Adicionar opções</div>
                 <div class="card-body">
-                    qtd de mesas
+                    <a href={{route('menu.insert')}}>
+                        <button type="button" class="btn btn-success">Adicionar +</button>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card">
-                <div class="card-header">Editar Itens</div>
+                <div class="card-header">Ver opções</div>
                 <div class="card-body">
-                    qtd de pedidos
+                    <a href="#">
+                        <button type="button" class="btn btn-info">Ver</button>
+                    </a>
                 </div>
             </div>
         </div>
+
     </div>
+</div>

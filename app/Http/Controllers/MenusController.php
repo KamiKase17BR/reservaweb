@@ -2,14 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
+
 
 class MenusController extends Controller
 {
 
+    public function __construct(Request $request, Menu $menu)
+    {
+        $this->request = $request;
+        $this->repository = $menu;
+        //$this->resturant = $restaurant;
+    }
+
     public function index()
     {
-        return view('menu.menushome');
+        return view('menu.home');
     }
 
     /**
@@ -19,18 +28,13 @@ class MenusController extends Controller
      */
     public function create()
     {
-        //
+        return view ('menu.insert');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $id_restaurante = Menu::restaurant();
+    dd($id_restaurante);
     }
 
     /**

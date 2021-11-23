@@ -115,9 +115,10 @@ class TablesController extends Controller
 
         $table->find($id);
 
-       // dd($request->all());
+       // $table->id = $id;
 
-        $table->update($request->all());
+        $table->id_parceiro = Auth::user()->id;
+        $table->save($request->all());
 
         return redirect()->route('table.list')->with('message', 'Atualizada a mesa '. $id);
     }
