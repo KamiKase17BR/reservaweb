@@ -36,6 +36,8 @@ class TablesController extends Controller
     public function store(Request $request)
     {
         $table = $this->repository;
+        $id_restaurante = Restaurant::first('id');
+        $table->id_restaurante = $id_restaurante['id'];
         $id = Auth::user()->id;
         $table->lugares = $request->place;
 
@@ -49,7 +51,6 @@ class TablesController extends Controller
         }
 
         $table->id_parceiro = $id;
-        //$table->id_restaurante =
         $request->checkhour;
         $table->hour08 = !isset($request->checkhour["08:00"]) ? 0 : 1;
         $table->hour09 = !isset($request->checkhour["09:00"]) ? 0 : 1;
@@ -82,8 +83,9 @@ class TablesController extends Controller
 
     public function list()
     {
-
-        $table = $this->repository->all();
+        $id_restaurante = Restaurant::first('id');
+        $id_restaurante = $id_restaurante['id'];
+        $table = Table::list($id_restaurante);
 
         return view('table.list', [
             'table' => $table

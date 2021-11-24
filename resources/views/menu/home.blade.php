@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="card-header">Ver opções</div>
                 <div class="card-body">
-                    <a href="#">
+                    <a href="{{route('menu.list')}}">
                         <button type="button" class="btn btn-info">Ver</button>
                     </a>
                 </div>

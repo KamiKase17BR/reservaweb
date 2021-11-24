@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class MenusController extends Controller
 {
@@ -31,18 +32,48 @@ class MenusController extends Controller
         return view ('menu.insert');
     }
 
-    public function store(Request $request)
+    public  function store(Request $request)
     {
-        $id_restaurante = Menu::restaurant();
-    dd($id_restaurante);
+        $menu = $this->repository;
+
+        $id_restaurante = Restaurant::first('id');
+        $menu->id_restaurante = $id_restaurante['id'];
+        $menu->nome = $request->name;
+        $menu->descricao = $request->particulars;
+        $menu->valor = $request->valor;
+
+        $requestImage = $request->imagem;
+        $request->validate(['image' => 'mimes:jpeg,jpg,png']);
+        $imageName = md5($id_restaurante . $request->name);
+        $menu->imagem = $imageName;
+        $requestImage->move(public_path('store/menus/' . $id_restaurante), $imageName);
+
+        $menu->save();
+        return redirect()->route('menu.insert')->with('message', 'Salvo com sucesso');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function list(){
+
+        $id = Auth::user()->id;
+        print_r($id); //1
+        echo "\n \n \n";
+
+        $id_restaurante = Restaurant::first('id'); // 4
+        $id_restaurante = $id_restaurante['id'];
+        print_r($id_restaurante); // =3
+
+        echo "\n \n \n";
+
+        $menu = Menu::list($id_restaurante);
+        print_r($menu);
+        die();
+        return view('menu.list', [
+            'table' => $menu
+        ]);
+
+    }
+
+
     public function show($id)
     {
         //

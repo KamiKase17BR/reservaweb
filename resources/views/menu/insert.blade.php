@@ -26,14 +26,14 @@
                     <div class="row">
                         <div class="form-group">
                             <label for="name">Valor:</label>
-                            <input type="text" class="form-control" name="valor" pattern="^\d*(\.\d{0,2})?$" placeholder="0.00">
+                            <input type="text" class="form-control" name="valor" pattern="^\d*(\.\d{0,2})?$" placeholder="00.00">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
                             Escolha a melhor foto:
                             <div class="card md-2" style="height: 2rem;">
-                                <input type="file" name="image" class="form-control-file">
+                                <input type="file" name="imagem" class="form-control-file">
                             </div>
                         </div>
                     </div>

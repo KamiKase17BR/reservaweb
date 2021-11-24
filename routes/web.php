@@ -40,7 +40,7 @@ Route::prefix('menu')->group(function(){
 Route::get('/home',                 'MenusController@index')->name('menu.home');
 Route::get('/insert',               'MenusController@create')->name('menu.insert');
 Route::post('/create',              'MenusController@store')->name('menu.store');
-
+Route::get('/list',                 'MenusController@list')->name('menu.list');
 
 
 

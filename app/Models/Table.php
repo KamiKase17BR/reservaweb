@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Table extends Model
 {
@@ -15,5 +16,12 @@ class Table extends Model
 
     public function restaurant(){
         return $this->belongsTo('App\Models\Restaurant','id','id_restaurante');
+    }
+
+    public static function list($id_restaurante){
+        $table = DB::table('tables')
+            ->where('id_restaurante', '=', $id_restaurante)
+            ->get();
+            return $table;
     }
 }

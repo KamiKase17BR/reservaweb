@@ -24,7 +24,6 @@ class RestaurantController extends Controller
 
     public function index()
     {
-        $teste = Restaurant::first();
         return view('restaurant.home');
     }
 
@@ -81,7 +80,11 @@ class RestaurantController extends Controller
 
     public function list()
     {
-       $restaurant = $this->repository->first();
+
+        $id_parceiro = $id = Auth::user()->id;
+        $restaurant = Restaurant::list($id_parceiro);
+
+       //$restaurant = $this->repository->first();
         if($restaurant == null){
             return redirect()->back()->with('message', 'Não há restaurante cadastrado! ');
         }

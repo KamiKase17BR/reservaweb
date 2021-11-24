@@ -56,6 +56,7 @@
             @yield('editrestaurant')
 
             @yield('insertmenu');
+            @yield('listmenu');
 
         </main>
     </div>

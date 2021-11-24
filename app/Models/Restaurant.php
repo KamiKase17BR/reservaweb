@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Restaurant extends Model
 {
@@ -24,6 +25,13 @@ class Restaurant extends Model
     }
 
     public function menus(){
-        return $this->hasMany('App\Models\Menu', 'id_restaurante','id');
+        return $this->hasMany('App\Models\Menu', 'id','id_restaurante');
+    }
+
+    public static function list($id_parceiro){
+        $restaurant = DB::table('restaurants')
+            ->where('id_parceiro', '=', $id_parceiro)
+            ->get();
+            return $restaurant;
     }
 }
