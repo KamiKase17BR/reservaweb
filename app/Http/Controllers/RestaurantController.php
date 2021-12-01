@@ -18,7 +18,6 @@ class RestaurantController extends Controller
 
         $this->request = $request;
         $this->repository = $restaurant;
-
     }
 
 
@@ -65,7 +64,6 @@ class RestaurantController extends Controller
 
         $restaurant->save();
         return redirect()->route('restaurant.insert')->with('message', 'Salvo com sucesso!');
-
     }
 
 
@@ -81,12 +79,10 @@ class RestaurantController extends Controller
     public function list()
     {
 
-        $id_parceiro = $id = Auth::user()->id;
-        $restaurant = Restaurant::list($id_parceiro);
-
-       //$restaurant = $this->repository->first();
-        if($restaurant == null){
-            return redirect()->back()->with('message', 'Não há restaurante cadastrado! ');
+        $id_parceiro = Auth::user()->id;
+        $restaurant = Restaurant::list($id_parceiro)->first();
+        if ($restaurant == null) {
+            return redirect()->back('restaurant')->with('message', 'Não há restaurante cadastrado! ');
         }
 
         return view('restaurant.list', [
@@ -97,8 +93,8 @@ class RestaurantController extends Controller
     public function edit($id)
     {
         $restaurant = $this->repository->find($id);
-        return view ('restaurant.edit', [
-            'restaurant'=>$restaurant
+        return view('restaurant.edit', [
+            'restaurant' => $restaurant
         ]);
     }
 
@@ -107,19 +103,21 @@ class RestaurantController extends Controller
         $restaurant = $this->repository;
 
         $restaurant->find($id);
+        $id_parceiro = Auth::user()->id;
+        $restaurant->id_parceiro = $id_parceiro;
 
         $restaurant->save($request->all());
 
-        return redirect()->route('restaurant.list')->with('message', 'Atualizado o estabelecimento '. $id);
+        return redirect()->route('restaurant.list')->with('message', 'Atualizado o estabelecimento ' . $id);
     }
 
 
     public function destroy($id)
     {
 
-        $restaurant = $this->repository->where('id',$id)->first();
+        $restaurant = $this->repository->where('id', $id)->first();
         $restaurant->delete();
 
-        return redirect()->route('restaurant.list')->with('message', 'Deletado o estabelecimento '. $id);
+        return redirect()->route('restaurant.list')->with('message', 'Deletado o estabelecimento ' . $id);
     }
 }

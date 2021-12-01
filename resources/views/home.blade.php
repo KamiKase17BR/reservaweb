@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header">Mesas</div>
                     <div class="card-body">
-                        qtd de mesas
+                        Você ainda não cadastrou mesas!
                     </div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                 <div class="card">
                     <div class="card-header">Pedidos</div>
                     <div class="card-body">
-                        qtd de pedidos
+                        Sem pedidos ainda!
                     </div>
                 </div>
             </div>

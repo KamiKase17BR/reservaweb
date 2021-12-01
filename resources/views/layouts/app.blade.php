@@ -57,6 +57,7 @@
 
             @yield('insertmenu');
             @yield('listmenu');
+            @yield('showmenu');
 
         </main>
     </div>

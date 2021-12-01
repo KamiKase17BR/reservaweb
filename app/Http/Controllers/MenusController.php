@@ -41,6 +41,9 @@ class MenusController extends Controller
         $menu->nome = $request->name;
         $menu->descricao = $request->particulars;
         $menu->valor = $request->valor;
+        $menu->comida = !isset($request->comida["comida"]) ? 0 : 1;
+        $menu->bebida = !isset($request->bebiba["bebida"]) ? 0 : 1;
+        $menu->sobremesa = !isset($request->sobremesa["sobremesa"]) ? 0 : 1;
 
         $requestImage = $request->imagem;
         $request->validate(['image' => 'mimes:jpeg,jpg,png']);
@@ -55,20 +58,11 @@ class MenusController extends Controller
     public function list(){
 
         $id = Auth::user()->id;
-        print_r($id); //1
-        echo "\n \n \n";
-
-        $id_restaurante = Restaurant::first('id'); // 4
+        $id_restaurante = Restaurant::first('id');
         $id_restaurante = $id_restaurante['id'];
-        print_r($id_restaurante); // =3
-
-        echo "\n \n \n";
-
         $menu = Menu::list($id_restaurante);
-        print_r($menu);
-        die();
         return view('menu.list', [
-            'table' => $menu
+            'menu' => $menu
         ]);
 
     }
@@ -76,27 +70,18 @@ class MenusController extends Controller
 
     public function show($id)
     {
-        //
+        $menu = $this->repository->find($id);
+
+        return view ('menu.show', [
+            'menu'=>$menu
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //

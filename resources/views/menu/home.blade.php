@@ -3,7 +3,7 @@
 
 
 <div class="bg-image-menu">
-    <div class="container-fluid">
+    <div class="container">
 
         <div class="col-md-4">
             <div class="card">

@@ -26,7 +26,29 @@
                     <div class="row">
                         <div class="form-group">
                             <label for="name">Valor:</label>
-                            <input type="text" class="form-control" name="valor" pattern="^\d*(\.\d{0,2})?$" placeholder="00.00">
+                            <input type="text" class="form-control" name="valor" pattern="^\d*(\.\d{0,2})?$"
+                                placeholder="00.00">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="type">Qual o tipo da opção:</label>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="food" value="true">
+                                    <label class="form-check-label" for="inlineCheckbox1">Comida</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="drink" value="true">
+                                    <label class="form-check-label" for="inlineCheckbox2">Bebida</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="deserts" value="true">
+                                    <label class="form-check-label" for="inlineCheckbox2">Sobremesa</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -38,12 +60,12 @@
                         </div>
                     </div>
 
-                        <div class="card-body row">
-                            <button type="submit" class="btn btn-success">Cadastrar</button>
-                        </div>
+                    <div class="card-body row">
+                        <button type="submit" class="btn btn-success">Cadastrar</button>
                     </div>
                 </div>
-
             </div>
+
+        </div>
     </form>
 @endsection
